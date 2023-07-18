@@ -1,0 +1,23 @@
+def as_hexadecimal(numero):
+    hexadecimal = ""
+
+    negative = False
+    if numero < 0:
+        is_negative = True
+        numero = abs(numero)
+
+    while numero > 0:
+        rule = str(numero % 16)
+        hexadecimal = rule + hexadecimal
+        numero = numero // 16
+
+    if negative:
+        hexadecimal = "-" + hexadecimal
+
+    return hexadecimal
+
+
+num = int(input("Введите число: "))
+result = as_hexadecimal(num)
+print("Шестнадцатеричное представление числа:", result)
+print("Шестнадцатеричное представление числа через hex: ", hex(num
