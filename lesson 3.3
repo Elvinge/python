@@ -1,0 +1,47 @@
+def suitable_combinations(items, max_weight):
+    combinations = []
+
+    def find_combinations(item_index, current_combination, current_weight):
+        if current_weight == max_weight or current_weight == 6 or current_weight == 7:
+            combinations.append(current_combination)
+            return
+
+        if current_weight > max_weight or item_index == len(items):
+            return
+
+        item, weight = items[item_index]
+        if current_weight + weight <= max_weight:
+            find_combinations(item_index + 1, current_combination + [item], current_weight + weight)
+
+        find_combinations(item_index + 1, current_combination, current_weight)
+
+    find_combinations(0, [], 0)
+    return combinations
+
+backpack_cap = 8
+items = {
+    'Палатка': 4,
+    'Вода': 1.5,
+    'Зажигалка': 0.1,
+    'Фонарик': 0.5,
+    'Книга' : 1,
+    'Салфетки': 0.3,
+    'Спички': 0.1,
+    'Перчатки': 0.4,
+    'Бумеранг': 0.3, 
+    'Кателок': 1,
+    'Куртка': 1.5,
+    'Жакет': 0.5,
+    
+    }
+
+items_list = [(item, weight) for item, weight in items.items()]
+
+combinations = suitable_combinations(items_list, backpack_cap)
+if len(combinations):
+    for i,combination in enumerate(combinations, start=1):
+        print(f'Комбинация {i}')
+        print(f'Вещи: {", ".join(item for item in combination)}')
+        print(f'Общая масса: {sum(items[item] for item in combination)}')
+else:
+    print("Нет подходящих комбинаций")
