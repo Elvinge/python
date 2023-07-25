@@ -1,0 +1,14 @@
+
+from typing import Dict, Any, Union
+
+def dictionary(**random: Any):
+    arg_dict: Dict[Union[int, str, float, tuple]] = {}
+    for key, value in random.items():
+        if not isinstance(value, (int, str, float, tuple)):
+            value = str(value)
+        arg_dict[value] = key
+    return arg_dict
+
+
+result = dictionary( a="bonsai", b="sakura", c=56, d=[9,7,3], e="45")
+print(result)
