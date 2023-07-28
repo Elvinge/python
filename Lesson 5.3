@@ -1,0 +1,10 @@
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+
+numbers_amount = 18
+fibonacci_sequence = list(fibonacci(numbers_amount))
+print(fibonacci_sequence)
