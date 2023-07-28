@@ -1,0 +1,10 @@
+import os
+
+path = input("Enter your path")
+
+root_ext = os.path.splitext(path)
+
+print("Full path`", root_ext[0])
+print("file name`", os.path.splitext(os.path.basename(path))[0])
+print("extention`", root_ext[1])
+
