@@ -1,0 +1,9 @@
+from Lesson7.1.2 import create_file
+
+def gen_files(data: dict):
+    for key, value in data.items():
+        create_file(key, amount_file=value)
+
+if __name__ == '__main__':
+    my_dict = {'.txt':2, '.doc':2, '.bin': 2, '.pdf': 2}
+    gen_files(my_dict)
