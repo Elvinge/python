@@ -1,7 +1,7 @@
 import argparse
 import logging
-from lesson14.student_exeptions import StudentNameError, InvalidSubjectError, InvalidScoreError
-from lesson14.student import Student
+from lesson15.student_exeptions import StudentNameError, InvalidSubjectError, InvalidScoreError
+from lesson15.student import Student
 
 logging.basicConfig(filename='student.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -15,7 +15,6 @@ def main():
     try:
         student = Student(args.name, args.csv_filename)
         
-        # Вызываем ошибку класса Student 
         student.add_score('Math', 6)
 
     except StudentNameError:
