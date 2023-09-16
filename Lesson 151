@@ -1,4 +1,4 @@
-from Lesson 15.2 import StudentNameError, InvalidSubjectError, InvalidScoreError
+from Lesson 152 import StudentNameError, InvalidSubjectError, InvalidScoreError
 import csv
 
 class Student:
